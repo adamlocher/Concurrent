@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN" "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+
+<tiles-definitions>
+
+	<definition name="baseLayout" template="/WEB-INF/jsp/skeleton/baseLayout.jsp"
+		preparer="com.systems.concurrent.utils.MenuPreparer">
+		<put-attribute name="title" value="Template" />
+		<put-attribute name="header" value="/WEB-INF/jsp/skeleton/header.jsp" />
+		<put-attribute name="menu" value="/WEB-INF/jsp/skeleton/menu.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer" value="/WEB-INF/jsp/skeleton/footer.jsp" />
+	</definition>
+	<definition name="welcome" extends="baseLayout">
+		<put-attribute name="title" value="Welcome" />
+		<put-attribute name="body" value="/WEB-INF/jsp/skeleton/welcome.jsp" />
+	</definition>
+
+	<definition name="register" extends="baseLayout">
+		<put-attribute name="title" value="Registration" />
+		<put-attribute name="body" value="/WEB-INF/jsp/register.jsp" />
+	</definition>
+	<definition name="login" extends="baseLayout">
+		<put-attribute name="title" value="Login" />
+		<put-attribute name="body" value="/WEB-INF/jsp/login.jsp" />
+	</definition>
+	<definition name="user" extends="baseLayout">
+		<put-attribute name="title" value="User" />
+		<put-attribute name="body" value="/WEB-INF/jsp/user.jsp" />
+	</definition>
+	<definition name="userDetails" extends="baseLayout">
+		<put-attribute name="title" value="User details" />
+		<put-attribute name="body" value="/WEB-INF/jsp/userDetails.jsp" />
+	</definition>
+	<definition name="main" extends="baseLayout">
+		<put-attribute name="title" value="Main" />
+		<put-attribute name="body" value="/WEB-INF/jsp/main.jsp" />
+	</definition>
+	<definition name="error" extends="baseLayout">
+		<put-attribute name="title" value="Error" />
+		<put-attribute name="body" value="/WEB-INF/jsp/skeleton/Error.jsp" />
+	</definition>
+	<definition name="project" extends="baseLayout">
+		<put-attribute name="title" value="Project" />
+		<put-attribute name="body" value="/WEB-INF/jsp/project.jsp" />
+	</definition>
+	<definition name="projectList" extends="baseLayout">
+		<put-attribute name="title" value="Project List" />
+		<put-attribute name="body" value="/WEB-INF/jsp/projectList.jsp" />
+	</definition>
+	<definition name="projectDetails" extends="baseLayout">
+		<put-attribute name="title" value="Project Details" />
+		<put-attribute name="body" value="/WEB-INF/jsp/projectDetails.jsp" />
+	</definition>
+	<definition name="chat" extends="baseLayout">
+		<put-attribute name="title" value="Chat" />
+		<put-attribute name="body" value="/WEB-INF/jsp/chat.jsp" />
+	</definition>
+	<definition name="task" extends="baseLayout">
+		<put-attribute name="title" value="Task" />
+		<put-attribute name="body" value="/WEB-INF/jsp/task.jsp" />
+	</definition>
+	<definition name="taskDetails" extends="baseLayout">
+		<put-attribute name="title" value="Task" />
+		<put-attribute name="body" value="/WEB-INF/jsp/taskDetails.jsp" />
+	</definition>
+	<definition name="fileupload" extends="baseLayout">
+		<put-attribute name="title" value="Upload Files" />
+		<put-attribute name="body" value="/WEB-INF/jsp/fileupload.jsp" />
+	</definition>
+	<definition name="approve" extends="baseLayout">
+		<put-attribute name="title" value="Approve users" />
+		<put-attribute name="body" value="/WEB-INF/jsp/approve.jsp" />
+	</definition>
+	<definition name="fileuploadList" extends="baseLayout">
+		<put-attribute name="title" value="Files" />
+		<put-attribute name="body" value="/WEB-INF/jsp/fileuploadList.jsp" />
+	</definition>
+</tiles-definitions>
