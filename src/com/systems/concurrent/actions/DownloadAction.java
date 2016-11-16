@@ -82,16 +82,6 @@ public class DownloadAction extends AbstractAction {
 		extension = item.getFileExtension();
 		return "preview";
 	}
-	//
-	// public String remove() {
-	// Map<String, Object> params = (Map<String, Object>)
-	// ActionContext.getContext().getParameters();
-	// Object fileId = params.get("id");
-	// Long id = Long.parseLong(((String[]) fileId)[0]);
-	// ProjectdataDao.getInstance().removeItem(id);
-	// projectdataList = ProjectdataDao.getInstance().getItems();
-	// return "list";
-	// }
 
 	public List<ProjectdataData> getProjectdataList() {
 		return projectdataList;

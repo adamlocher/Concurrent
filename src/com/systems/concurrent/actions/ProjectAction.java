@@ -102,7 +102,6 @@ public class ProjectAction extends CRUDAction<ProjectData> {
 
 	@Override
 	public String Remove() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -120,8 +119,6 @@ public class ProjectAction extends CRUDAction<ProjectData> {
 		user = UserDao.getInstance().getItem(id);
 		projectDevelopers.add(user);
 		getFreeDevelopers();
-		// getUsersDEV();
-		// getProjectDevs();
 		return "details";
 	}
 
@@ -141,14 +138,6 @@ public class ProjectAction extends CRUDAction<ProjectData> {
 
 	@Override
 	public String Modify() {
-		/*
-		 * if(editMode){ Map<String, Object> params = (Map<String, Object>)
-		 * ActionContext.getContext().getParameters(); Long id=null; try{ Object
-		 * projectId=params.get("id");
-		 * id=Long.parseLong(((String[])projectId)[0]); }catch(Exception e){
-		 * return "list"; } }
-		 */
-
 		project = (ProjectData) getAttribute("item");
 		editMode = true;
 		return "details";
@@ -173,8 +162,7 @@ public class ProjectAction extends CRUDAction<ProjectData> {
 			getTesters = true;
 		for (UserData u : UserDao.getInstance().getUsersDEV(getTesters))
 			lista.put(u.getId(), u.getName() + " " + u.getSurname());
-		
-		
+
 		return lista;
 
 	}
@@ -204,8 +192,6 @@ public class ProjectAction extends CRUDAction<ProjectData> {
 		getFreeDevelopers();
 
 		return "details";
-		// System.out.println("ID="+id);
-
 	}
 
 	public void setUserId(Long id) {

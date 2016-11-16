@@ -184,8 +184,8 @@ public class TaskAction extends CRUDAction<TaskData> {
 	}
 
 	public Map<Long, String> getUsersDEVProject() {
-		//task = (TaskData) getAttribute("item");
-		ProjectData project = ProjectDao.getInstance().getItem((Long)getAttribute("id"));
+		// task = (TaskData) getAttribute("item");
+		ProjectData project = ProjectDao.getInstance().getItem((Long) getAttribute("id"));
 		List<UserData> projDevelopers = project.getUsers();
 		Map<Long, String> lista = new HashMap<>();
 		boolean getTesters = false;
@@ -196,9 +196,10 @@ public class TaskAction extends CRUDAction<TaskData> {
 			lista.put(u.getId(), u.getName() + " " + u.getSurname());
 		return lista;
 	}
+
 	public Map<Long, String> getUsersDEVTask() {
-		//task = (TaskData) getAttribute("item");
-		TaskData task = TaskDao.getInstance().getItem((Long)getAttribute("id"));
+		// task = (TaskData) getAttribute("item");
+		TaskData task = TaskDao.getInstance().getItem((Long) getAttribute("id"));
 		List<UserData> projDevelopers = task.getProject().getUsers();
 		Map<Long, String> lista = new HashMap<>();
 		boolean getTesters = false;
@@ -207,10 +208,10 @@ public class TaskAction extends CRUDAction<TaskData> {
 			getTesters = true;
 		for (UserData u : projDevelopers)
 			lista.put(u.getId(), u.getName() + " " + u.getSurname());
-		if(getTesters){
-			for (UserData u : 	UserDao.getInstance().getTesters())
+		if (getTesters) {
+			for (UserData u : UserDao.getInstance().getTesters())
 				lista.put(u.getId(), u.getName() + " " + u.getSurname());
-			}
+		}
 		return lista;
 	}
 
@@ -250,7 +251,8 @@ public class TaskAction extends CRUDAction<TaskData> {
 		task.setComments(((TaskData) getAttribute("item")).getComments());
 		task.setStatus(((TaskData) getAttribute("item")).getStatus());
 		task.setEstimatedTime(((TaskData) getAttribute("item")).getEstimatedTime());
-		if (task.getAssignedUserId()!=null && !task.getAssignedUserId().equals(((TaskData) getAttribute("item")).getAssignedUserId())) {
+		if (task.getAssignedUserId() != null
+				&& !task.getAssignedUserId().equals(((TaskData) getAttribute("item")).getAssignedUserId())) {
 			String assFrom = "NONE";
 			if (((TaskData) getAttribute("item")).getAssignedUser() != null)
 				assFrom = ((TaskData) getAttribute("item")).getAssignedUser().getName() + " "

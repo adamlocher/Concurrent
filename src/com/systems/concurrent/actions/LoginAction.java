@@ -16,11 +16,6 @@ public class LoginAction extends AbstractAction {// implements SessionAware{
 
 	private static final long serialVersionUID = -6950411248750851686L;
 	private UserData user;
-	// private Map<String, Object> session;
-
-	/*
-	 * public String home() { return SUCCESS; }
-	 */
 
 	public String Login() throws Exception {
 
@@ -39,10 +34,7 @@ public class LoginAction extends AbstractAction {// implements SessionAware{
 					addActionError("You are not approved by administrator");
 					return LOGIN;
 				}
-				// getSession().put("user", user);
-				// session.put("loginId", user.getId());
 				setUserContext(new UserContext(user.getId(), user.getEmail(), user.getAccType()));
-				// setAttribute("user", user);
 				setAttribute(USERCTX, getUserContext());
 				return SUCCESS;
 			} else {
@@ -51,13 +43,9 @@ public class LoginAction extends AbstractAction {// implements SessionAware{
 			return LOGIN;
 		}
 	}
-	/*
-	 * public Map<String, Object> getSession() { return session; }
-	 */
 
 	public String logOut() {
 		removeAttribute(USERCTX);
-		// session.remove("loginId");
 		addActionMessage("You have been Successfully Logged Out");
 		return SUCCESS;
 	}
@@ -90,10 +78,4 @@ public class LoginAction extends AbstractAction {// implements SessionAware{
 
 	}
 
-	/*
-	 * public void setSession(Map<String, Object> session) {
-	 * this.session=session;
-	 * 
-	 * }
-	 */
 }

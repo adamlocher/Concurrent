@@ -73,24 +73,15 @@ public class UserAction extends CRUDAction<UserData> {
 
 	public String Load() {
 		if (!isLoad) {
-			/*
-			 * if(getId()!=null) user=UserDao.getInstance().getItem(getId());
-			 * //after registrtation else
-			 */
-			user = UserDao.getInstance().getItem(getUserContext().getId()); // after
-																			// login
+			user = UserDao.getInstance().getItem(getUserContext().getId());
 			setAttribute("item", user);
 		}
-		// setAttribute("item", user);
-		// getSession().put("item", user);
-		// setItem(user);
-		// System.out.println(user);
+
 		return super.Load();
 
 	}
 
 	public String ChangePassword() {
-		// UserData user = getUser();
 		System.out.println("change pass");
 		UserData user = getUser();
 		String passw = EncryptionUtil.crypt(user.getPassword() + user.getEmail());
@@ -102,21 +93,12 @@ public class UserAction extends CRUDAction<UserData> {
 	public String Modify() {
 
 		if ("Modify".equals(getActionName())) {
-			// user=UserDao.getInstance().getItem(getUserContext().getId());
-			// setItem(user);
 			return super.Modify();
-		} // if("Save".equals(getActionName()))
+		}
 		UserDao.getInstance().modifyItem(getUser());
 		editMode = false;
 		CacheExt.refreshCache();
 		return Action.SUCCESS;
-
-		/*
-		 * if(!isEditMode()){
-		 * 
-		 * 
-		 * } else return Save();
-		 */
 	}
 
 	@Override
@@ -136,7 +118,6 @@ public class UserAction extends CRUDAction<UserData> {
 
 	@Override
 	public String Save() {
-		// managerBean.createItem(user, UserDao.class);
 		UserDao.getInstance().createItem(user);
 		CacheExt.refreshCache();
 		return super.Save();

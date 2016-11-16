@@ -18,14 +18,11 @@ public abstract class AbstractDao<TYPE extends AbstractData> {
 		if (id != null) {
 			try {
 				em = EMFactory.createEntityManager();
-				TYPE item=em.find(entityClass, id);
+				TYPE item = em.find(entityClass, id);
 				em.refresh(item);
 				return item;
 			} catch (Exception e) {
 				System.err.println(e.getMessage());
-			} finally {
-				/*if (em != null)
-					em.close();*/
 			}
 		}
 		return null;
@@ -82,7 +79,7 @@ public abstract class AbstractDao<TYPE extends AbstractData> {
 			em.merge(item);
 			em.getTransaction().commit();
 			em.refresh(item);
-			
+
 		} catch (Exception e) {
 			System.err.println(e.getMessage());
 		} finally {

@@ -12,9 +12,9 @@ public class WelcomeAction extends AbstractAction {
 	public String execute() throws Exception {
 		return super.execute();
 	}
-	
-	public List<ProjectData> getUserProjects(){
-		UserData user=UserDao.getInstance().getItem(getUserContext().getId());
+
+	public List<ProjectData> getUserProjects() {
+		UserData user = UserDao.getInstance().getItem(getUserContext().getId());
 		return user.getProjects();
 	}
 }
